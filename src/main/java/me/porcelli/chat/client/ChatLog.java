@@ -5,7 +5,7 @@ import javax.inject.Inject;
 
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.TextArea;
-import me.porcelli.chat.shared.event.NewMessage;
+import me.porcelli.chat.shared.event.BroadMessage;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 
@@ -16,7 +16,7 @@ public class ChatLog extends Composite {
     @DataField
     TextArea myChatLog;
 
-    public void onMessages( @Observes final NewMessage newMessage ) {
+    public void onMessages( @Observes final BroadMessage newMessage ) {
         final StringBuilder sb = new StringBuilder();
         sb.append( "[" );
         sb.append( newMessage.getMessage().getDate() );
